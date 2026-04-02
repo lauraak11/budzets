@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bilance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h1>📊 Bilance</h1>
+
+<div class="balance {{ 'positive' if bilance >= 0 else 'negative' }}">
+    {{ bilance }} €
+</div>
+
+<h2>
+{% if bilance >= 0 %}
+    ↑ +{{ proc }} %
+{% else %}
+    ↓ {{ proc }} %
+{% endif %}
+</h2>
+
+<div style="text-align:center;">
+    <a href="/">⬅ Atpakaļ</a>
+</div>
+
+</div>
+
+<!-- KAĶIS -->
+<img src="{{ url_for('static', filename='cat.png') }}" class="cat" id="cat">
+
+<script>
+const cat = document.getElementById("cat");
+
+cat.addEventListener("click", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+
+    cat.style.left = x + "px";
+    cat.style.top = y + "px";
+});
+</script>
+
+</body>
+</html>

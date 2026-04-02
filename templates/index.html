@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budžets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h1>💰 Budžeta plānotājs</h1>
+
+<form method="post" action="/pievienot">
+    <input type="text" name="summa" placeholder="Summa (€)" required>
+    <input type="text" name="apraksts" placeholder="Apraksts" required>
+
+    <select name="tips">
+        <option>Ienākums</option>
+        <option>Izdevums</option>
+    </select>
+
+    <button type="submit">Pievienot</button>
+</form>
+
+<div class="balance {{ 'positive' if bilance >= 0 else 'negative' }}">
+    Bilance: {{ bilance }} €
+</div>
+
+<div class="filtri">
+    <a href="/">Visi</a>
+    <a href="/?filtrs=Ienākums">Ienākumi</a>
+    <a href="/?filtrs=Izdevums">Izdevumi</a>
+    <a href="/?filtrs=Svarīgākie">⭐ Svarīgākie</a>
+</div>
+
+<ul>
+{% for ier in dati %}
+<li>
+    <span>
+        {{ ier.datums }} | <b>{{ ier.tips }}</b> | {{ ier.summa }}€ | {{ ier.apraksts }}
+    </span>
+
+    <div>
+        <a href="/fav/{{ loop.index0 }}">
+            {% if ier.fav %}⭐{% else %}☆{% endif %}
+        </a>
+
+        <a href="/dzest/{{ loop.index0 }}" class="delete">❌</a>
+    </div>
+</li>
+{% endfor %}
+</ul>
+
+<div style="text-align:center;">
+    <a href="/bilance">📊 Skatīt bilanci</a>
+</div>
+
+</div>
+
+<!-- KAĶIS -->
+<img src="{{ url_for('static', filename='cat.png') }}" class="cat" id="cat">
+
+<script>
+const cat = document.getElementById("cat");
+
+cat.addEventListener("click", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+
+    cat.style.left = x + "px";
+    cat.style.top = y + "px";
+});
+</script>
+
+</body>
+</html>

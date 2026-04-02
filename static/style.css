@@ -1,0 +1,151 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #d1f8d6, #ACB6E5);
+    margin: 0;
+    padding: 0;
+}
+
+/* KONTEINERS */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* VIRSRaksti */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* FORMA */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* POGA */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+/* FILTRI */
+.filtri {
+    text-align: center;
+    margin: 15px;
+}
+
+.filtri a {
+    padding: 8px 15px;
+    background: #eee;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.filtri a:hover {
+    background: #4CAF50;
+    color: white;
+}
+
+/* SARAKSTS */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f9f9f9;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s;
+}
+
+li:hover {
+    transform: scale(1.02);
+    background: #f1f1f1;
+}
+
+/* DZĒST */
+.delete {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* BILANCE */
+.balance {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px;
+}
+
+/* KAĶIS */
+.cat {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 80px;
+    cursor: pointer;
+    animation: spin 4s linear infinite;
+}
+
+/* ROTĀCIJA */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+/* POZITĪVA / NEGATĪVA BILANCE */
+.positive {
+    color: green;
+    animation: glowGreen 1s ease-in-out infinite alternate;
+}
+
+.negative {
+    color: red;
+    animation: glowRed 1s ease-in-out infinite alternate;
+}
+
+@keyframes glowGreen {
+    from { text-shadow: 0 0 5px green; }
+    to { text-shadow: 0 0 15px lime; }
+}
+
+@keyframes glowRed {
+    from { text-shadow: 0 0 5px red; }
+    to { text-shadow: 0 0 15px orange; }
+}
